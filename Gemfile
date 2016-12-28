@@ -10,6 +10,7 @@ source 'https://rubygems.org'
 
  group :development do
    gem 'sqlite3'
+   gem 'mailcatcher'
  end
 
  gem 'sass-rails', '~> 5.0'
