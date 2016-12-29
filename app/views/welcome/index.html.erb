@@ -1,2 +1,16 @@
-<h1>Welcome to Blocmetrics!</h1>
-<p>Find me in app/views/welcome/index.html.erb</p>
+ <div class="jumbotron">
+   <h1>Welcome to Blocmetrics!</h1>
+   <p>We collect and analyze data for your consumption!  More applications means more data, which means we're delivering more value to you each and every day! </p>
+
+ </div>
+
+ <div class="row">
+   <div class="col-md-4">
+     <h2>Shall we get started?</h2>
+   </div>
+   <br>
+   <div class="col-md-4">
+     <h4><%= link_to "VIEW", registered_applications_path %> a list of your tracked applications!</h4><br>
+     <h4><%= link_to "ADD", new_registered_application_path %> new applications to the list!</h4>
+   </div>
+</div>

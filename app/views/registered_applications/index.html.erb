@@ -1,6 +1,10 @@
-<h1>Registered Applications</h1>
+<h1>Your Registered Applications</h1>
+<%= @user.id %>
  <div class="row">
    <div class="col-md-8">
      <%= render @registered_applications %>
    </div>
  </div>
+
+   "Whoops, looks like you haven't added any applications yet.  Let's get you started!"
+   <% link_to "Add your first application", new_registered_application_path %>
