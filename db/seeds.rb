@@ -20,6 +20,18 @@ password = Faker::Internet.password(6)
  end
  registered_applications = RegisteredApplication.all
 
+
+ 500.times do
+   event = Event.create!(
+   user: users.sample,
+   registered_application: registered_applications.sample,
+   name: Faker::StarWars.planet
+   )
+ end
+
+ events = Event.all
+
   puts "Seed finished"
   puts "#{User.count} users created"
   puts "#{RegisteredApplication.count} registered applications created"
+  puts "#{Event.count} events created"
