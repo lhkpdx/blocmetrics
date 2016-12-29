@@ -11,6 +11,7 @@ class RegisteredApplicationsController < ApplicationController
 
   def create
     @registered_application = RegisteredApplication.new(registered_application_params)
+    @registered_application.user = current_user
     if @registered_application.save
       redirect_to @registered_application, notice: "Registration saved successfully"
     else
@@ -53,8 +54,7 @@ class RegisteredApplicationsController < ApplicationController
  private
 
  def registered_application_params
-   params.require(:registered_application).permit(:name, :url)
+   params.require(:registered_application).permit(:name, :url, :user_id)
  end
 
- 
 end
