@@ -38,6 +38,7 @@ class RegisteredApplicationsController < ApplicationController
 
   def show
     @registered_application = RegisteredApplication.find(params[:id])
+    @events = Event.where(registered_application_id: @registered_application.id)
   end
 
   def destroy

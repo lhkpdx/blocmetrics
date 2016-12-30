@@ -1,0 +1,13 @@
+<h3>Number of events for this application: <%= @registered_application.events.count %></h3>
+  <table class="table">
+      <tr>
+       <th>Name</th>
+       <th>Created At</th>
+      </tr>
+    <% @events.order(:name, :created_at).each do |event| %>
+      <tr>
+        <td><%= event.name %></td>
+        <td><%= event.created_at %></td>
+      </tr>
+   <% end %>
+</table>
