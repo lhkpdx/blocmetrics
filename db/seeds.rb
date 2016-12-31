@@ -8,6 +8,16 @@ password = Faker::Internet.password(6)
      confirmed_at: Faker::Date.backward(360)
      )
  end
+
+testuser = User.create!(
+     email: "you@me.com",
+     password: "ffffff",
+     password_confirmation: "ffffff",
+     confirmed_at: Faker::Date.backward(360)
+     )
+     testuser.skip_confirmation!
+     testuser.save!
+
  users = User.all
 
  50.times do
@@ -23,10 +33,10 @@ password = Faker::Internet.password(6)
 
  500.times do
    event = Event.create!(
-   user: users.sample,
    registered_application: registered_applications.sample,
    name: Faker::StarWars.planet
    )
+   event.update_attribute(:created_at, rand(10.minutes .. 1.year).ago)
  end
 
  events = Event.all
