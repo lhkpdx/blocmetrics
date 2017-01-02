@@ -1,28 +1,33 @@
-== README
+Blocmetrics - an analytic service and reporting tool
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This simple but powerful rails application authenticates users with Devise and has a
+user interface to track and analyze events.  It features a server-side API that captures and saves events to a database and
+easy-to-implement client-side JavaScript to allows a user to track events on their website.
 
-Things you may want to cover:
+Use the following JavaScript in the Rails application whose events you want to track placing it in the app/assets/javascripts/application.js file:
 
-* Ruby version
+var blocmetrics = {};
 
-* System dependencies
+blocmetrics.report = function(eventName){
+  var event = { name: eventName };
 
-* Configuration
+  var request = new XMLHttpRequest();
+  // the http path is an example, use production path
+  request.open("POST", "http://localhost:3000/api/events", true);
+  request.setRequestHeader('Content-Type', 'application/json');
 
-* Database creation
+  request.send(JSON.stringify(event));
+  }
 
-* Database initialization
+This is an example of JavaScript to track specific events of your app; include such script in same file as above:
 
-* How to run the test suite
+window.onload = init;
 
-* Services (job queues, cache servers, search engines, etc.)
+function init() {
+  var [something] = document.getElementById("[something]");
+  [something].onclick = [something]views;
+};
 
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+function [something]views(){
+  blocmetrics.report('[something] views');
+};
