@@ -6,7 +6,7 @@
        <small>Created by: <%= @registered_application.user.email %></small>
    </div>
  </div>
-
+ <%= link_to "add event", "javascript:blocmetrics.report('sale')" %>
  <% if @events %>
    <%= render partial: 'event', locals: { name: @name, created_at: @created_at } %>
  <% end %>
