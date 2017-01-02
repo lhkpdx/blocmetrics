@@ -24,6 +24,7 @@ source 'https://rubygems.org'
  gem 'pry'
  gem 'devise'
  gem 'valid_url'
+ gem 'chartkick'
 
  group :development, :test do
    gem 'byebug'

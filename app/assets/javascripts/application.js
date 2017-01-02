@@ -14,15 +14,15 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require bootstrap-sprockets
+//= require chartkick
 //= require_tree .
 
 var blocmetrics = {};
 
   blocmetrics.report = function(eventName){
     var event = {event: { name: eventName }};
-    var registered_application = RegisteredApplication.find_by(url: request.env['HTTP_ORIGIN'])
     var request = new XMLHttpRequest();
-    request.open("POST", "registered_application", true);
+    request.open("POST", "http://localhost:3000/api/events", true);
     request.setRequestHeader('Content-Type', 'application/json');
     request.send(JSON.stringify(event));
    };
