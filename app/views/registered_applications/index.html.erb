@@ -6,8 +6,6 @@
          <% if app.user == current_user %>
           <%= link_to app.name, app %><br>
           <small>There are <%= app.events.count %> events for this application.</small>
-          <%= javascript_include_tag "//www.google.com/jsapi", "chartkick" %>
-          <%= pie_chart app.events.group(:name).count %>
           <br><br>
      <% end %>
      <% end %>

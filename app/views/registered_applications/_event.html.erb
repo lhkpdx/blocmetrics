@@ -1,8 +1,13 @@
 <h3>Number of events for this application: <%= @registered_application.events.count %></h3>
-<%= javascript_include_tag "//www.google.com/jsapi", "chartkick" %>
+<div class="row">
+  <div class="col-md-6">
 <%= pie_chart @registered_application.events.group(:name).count %>
-  <table class="table">
-      <tr>
+  </div>
+</div>
+<br>
+<div class="col-md-6">
+   <table class="table">
+     <tr>
        <th>Name</th>
        <th>Created At</th>
       </tr>
@@ -12,4 +17,9 @@
         <td><%= event.created_at %></td>
       </tr>
    <% end %>
-</table>
+ </table>
+</div>
+
+<div class ="col-md-8"
+<%= line_chart @registered_application.events.group_by_week(:created_at, format: "%m %d, %Y").count, discrete: true %>
+</div>

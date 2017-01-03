@@ -10,11 +10,15 @@
  <% if @events %>
    <%= render partial: 'event', locals: { name: @name, created_at: @created_at } %>
  <% end %>
- <br>
-   <div class="col-md-4">
-     <%= link_to "Back", registered_applications_path %> |
-     <%= link_to "Home", root_path %> |
-     <%= link_to "Edit", edit_registered_application_path %> |
-     <%= link_to "Delete", @registered_application, method: :delete, data: { confirm: 'Are you sure you want to delete this application?' } %>
-   </div>
  </div>
+ <br><br>
+ <div class="container"
+    <div class="row">
+      <div class="col-md-4">
+         <%= link_to "Back", registered_applications_path %> |
+         <%= link_to "Home", root_path %> |
+         <%= link_to "Edit", edit_registered_application_path %> |
+         <%= link_to "Delete", @registered_application, method: :delete, data: { confirm: 'Are you sure you want to delete this application?' } %>
+      </div>
+    </div>
+  </div>
